@@ -3,7 +3,7 @@ import time
 from slack_sdk import WebClient
 from slack_sdk.errors import SlackApiError
 
-SLACK_API_TOKEN = 'xoxb-4348796765079-5117507520707-JtVr88EVAmlzVCxTZvpeqLDy'
+SLACK_API_TOKEN = 'xoxb-4348796765079-5117507520707-2lLchxL3YzUjx0bSAYlnWUK8'
 
 # Set the Slack API token
 # client = WebClient(token=os.environ['SLACK_API_TOKEN'])
