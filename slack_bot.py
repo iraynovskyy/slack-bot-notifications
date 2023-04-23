@@ -18,7 +18,7 @@ import boto3
 ssm = boto3.client('ssm')
 response = ssm.get_parameter(Name='ihor-slack-bot-notification-token', WithDecryption=True)
 SLACK_API_TOKEN = response['Parameter']['Value']
-
+print('SLACK_API_TOKEN===', SLACK_API_TOKEN)
 
 # Set the Slack API token
 # client = WebClient(token=os.environ['SLACK_API_TOKEN'])
