@@ -15,7 +15,7 @@ from slack_sdk.errors import SlackApiError
 #     return _client.get_parameter(Name=name, WithDecryption=True)['Parameter']['Value']
 import boto3
 
-ssm = boto3.client('ssm')
+ssm = boto3.client('ssm', region_name='eu-north-1')
 response = ssm.get_parameter(Name='ihor-slack-bot-notification-token', WithDecryption=True)
 SLACK_API_TOKEN = response['Parameter']['Value']
 print('SLACK_API_TOKEN===', SLACK_API_TOKEN)
