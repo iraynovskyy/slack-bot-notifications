@@ -3,7 +3,22 @@ import time
 from slack_sdk import WebClient
 from slack_sdk.errors import SlackApiError
 
-SLACK_API_TOKEN = 'xoxb-4348796765079-5117507520707-Cj7EhYhqv5SxNke3EfExYaHw'
+# SLACK_API_TOKEN = '<is in .env locally>'
+
+# from cachetools import cached, TTLCache
+# import boto3
+#
+#
+# @cached(TTLCache(maxsize=128, ttl=300))
+# def get_token(name):
+#     _client = boto3.client("ssm", region_name='us-east-1')
+#     return _client.get_parameter(Name=name, WithDecryption=True)['Parameter']['Value']
+import boto3
+
+ssm = boto3.client('ssm')
+response = ssm.get_parameter(Name='ihor-slack-bot-notification-token', WithDecryption=True)
+SLACK_API_TOKEN = response['Parameter']['Value']
+
 
 # Set the Slack API token
 # client = WebClient(token=os.environ['SLACK_API_TOKEN'])
