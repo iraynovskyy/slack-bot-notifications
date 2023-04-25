@@ -11,6 +11,7 @@ import boto3
 ssm = boto3.client('ssm', region_name='eu-north-1')
 response = ssm.get_parameter(Name='ihor-slack-bot-notification-token', WithDecryption=True)
 SLACK_API_TOKEN = response['Parameter']['Value']
+
 # print('SLACK_API_TOKEN===', SLACK_API_TOKEN)
 
 # Set the Slack API token
@@ -64,13 +65,13 @@ def send_message():
 
 
 # Schedule the send_message function to run every day at 9am
-schedule.every().day.at("09:25").do(send_message)
+schedule.every().day.at("06:25").do(send_message)
 
 # Schedule the print_do_sport function to run every day at 10am
-schedule.every().day.at("9:55").do(print_do_sport())
+schedule.every().day.at("06:55").do(print_do_sport)
 
 # Schedule the print_do_cources function to run every day at 5:30pm
-schedule.every().day.at("17:30").do(print_do_courses())
+schedule.every().day.at("14:30").do(print_do_courses)
 
 # Loop forever, checking if the scheduled function should be run
 while True:
