@@ -3,6 +3,8 @@ import time
 from slack_sdk import WebClient
 from slack_sdk.errors import SlackApiError
 import schedule
+from datetime import datetime
+from pytz import timezone
 
 # SLACK_API_TOKEN = '<is in .env locally>'
 
@@ -27,7 +29,12 @@ message_motivation = f'do not lose your life... https://www.youtube.com/shorts/O
 message_sport = f'do sport 15 mins! <@{user_id}>, for own better health, look and social life'
 message_courses = f'watch courses 20-30 mins! <@{user_id}>, for self-development and pass the table of Progress...BASICS...architecture'
 
-print('app started! working...')
+
+# Get the current time in the Europe/Kyiv time zone
+kyiv_timezone = timezone('Europe/Kyiv')
+current_time = datetime.now(kyiv_timezone)
+current_time_custom = current_time.strftime('%H:%M:%S / Kyiv zone')  # ('%Y-%m-%d %H:%M:%S %Z%z')
+print(f'The app has started working at {current_time_custom}...')
 
 
 def send_message(msg):
