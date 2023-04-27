@@ -45,8 +45,8 @@ def send_message(msg):
 # send starting message
 send_message('The app has started working! Have a Great Day!')
 
-# # Schedule the send_message function to Motivate every day at 9:am
-schedule.every().day.at("18:56", "Europe/Kyiv").do(
+# # Schedule the send_message function to Motivate every day at 9:30am
+schedule.every().day.at("09:30", "Europe/Kyiv").do(
     lambda: send_message(message_motivation))  # todo add logic to motivate again at 23:00
 
 # Schedule the print_do_sport function to Motivate every day at 11pm
